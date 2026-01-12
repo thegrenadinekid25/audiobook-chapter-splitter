@@ -11,6 +11,7 @@ Automatically detect and split audiobook MP3 files by chapters using Whisper spe
 - Parallel transcription for speed
 - Caches transcriptions for re-runs
 - **ID3 metadata tagging** - add album, author, narrator, track numbers
+- **Cover art embedding** - from URL, local file, or auto-fetch by ISBN
 
 ## Requirements
 
@@ -90,6 +91,25 @@ This adds ID3 metadata to each chapter file:
 - Genre (Audiobook)
 - Year
 
+### With Cover Art
+
+```bash
+# From a URL
+python audiobook_splitter.py /path/to/audiobook/ \
+    --cover "https://example.com/cover.jpg" \
+    --album "Book Title"
+
+# From a local file
+python audiobook_splitter.py /path/to/audiobook/ \
+    --cover /path/to/cover.jpg \
+    --album "Book Title"
+
+# Auto-fetch by ISBN (uses Google Books API)
+python audiobook_splitter.py /path/to/audiobook/ \
+    --isbn "9780062676788" \
+    --album "The Word Is Murder"
+```
+
 ## Options
 
 | Option | Description |
@@ -102,6 +122,8 @@ This adds ID3 metadata to each chapter file:
 | `--author NAME` | Author name for ID3 metadata |
 | `--narrator NAME` | Narrator name for ID3 metadata |
 | `--year YEAR` | Publication year for ID3 metadata |
+| `--cover URL/PATH` | Cover image URL or local file path |
+| `--isbn ISBN` | Auto-fetch cover from Google Books by ISBN |
 
 ## How It Works
 

@@ -278,6 +278,95 @@ class Metadata:
     author: Optional[str] = None
     narrator: Optional[str] = None
     year: Optional[str] = None
+    cover_path: Optional[Path] = None
+
+
+def fetch_cover_from_isbn(isbn: str, output_path: Path) -> bool:
+    """Try to fetch book cover from Google Books API."""
+    import urllib.request
+    import urllib.error
+
+    # Query Google Books API
+    api_url = f"https://www.googleapis.com/books/v1/volumes?q=isbn:{isbn}"
+    try:
+        with urllib.request.urlopen(api_url, timeout=10) as response:
+            data = json.loads(response.read().decode())
+
+        if data.get("totalItems", 0) == 0:
+            return False
+
+        # Get image link
+        volume = data["items"][0]["volumeInfo"]
+        image_links = volume.get("imageLinks", {})
+
+        # Try to get highest quality available
+        image_url = image_links.get("extraLarge") or image_links.get("large") or \
+                   image_links.get("medium") or image_links.get("thumbnail")
+
+        if not image_url:
+            return False
+
+        # Remove zoom parameter for higher quality
+        image_url = re.sub(r'&zoom=\d', '&zoom=0', image_url)
+        image_url = image_url.replace('http://', 'https://')
+
+        # Download image
+        urllib.request.urlretrieve(image_url, str(output_path))
+        return output_path.exists() and output_path.stat().st_size > 1000
+
+    except (urllib.error.URLError, json.JSONDecodeError, KeyError):
+        return False
+
+
+def download_cover(url_or_path: str, output_dir: Path) -> Optional[Path]:
+    """Download cover image from URL or return path if it's a local file."""
+    import urllib.request
+    import urllib.error
+
+    # Check if it's a local file
+    local_path = Path(url_or_path)
+    if local_path.exists():
+        return local_path
+
+    # It's a URL, download it
+    output_path = output_dir / "cover.jpg"
+
+    try:
+        print(f"  Downloading cover from: {url_or_path[:60]}...")
+        urllib.request.urlretrieve(url_or_path, str(output_path))
+        if output_path.exists() and output_path.stat().st_size > 1000:
+            return output_path
+    except urllib.error.URLError as e:
+        print(f"  Failed to download cover: {e}")
+
+    return None
+
+
+def embed_cover(mp3_path: Path, cover_path: Path) -> bool:
+    """Embed cover art into MP3 file."""
+    temp_file = mp3_path.with_suffix('.tmp.mp3')
+
+    cmd = [
+        "ffmpeg", "-y",
+        "-i", str(mp3_path),
+        "-i", str(cover_path),
+        "-map", "0:a",
+        "-map", "1:0",
+        "-c:a", "copy",
+        "-c:v", "mjpeg",
+        "-metadata:s:v", "title=Album cover",
+        "-metadata:s:v", "comment=Cover (front)",
+        "-id3v2_version", "3",
+        str(temp_file)
+    ]
+
+    code, _, _ = run_command(cmd, timeout=60)
+    if code == 0:
+        temp_file.replace(mp3_path)
+        return True
+    else:
+        temp_file.unlink(missing_ok=True)
+        return False
 
 
 def add_metadata(file_path: Path, title: str, track_num: int, total_tracks: int,
@@ -370,6 +459,9 @@ def split_by_chapters(chapters: list[Chapter], mp3_files: list[Path],
         # Add metadata if provided
         if metadata and out_file.exists():
             add_metadata(out_file, ch.title, ch.number, len(chapters), metadata)
+            # Embed cover art if provided
+            if metadata.cover_path and metadata.cover_path.exists():
+                embed_cover(out_file, metadata.cover_path)
 
 
 def split_by_duration(mp3_files: list[Path], output_dir: Path, segment_minutes: int):
@@ -417,6 +509,8 @@ def main():
     parser.add_argument("--author", help="Author name for metadata")
     parser.add_argument("--narrator", help="Narrator name for metadata")
     parser.add_argument("--year", help="Publication year for metadata")
+    parser.add_argument("--cover", help="Cover image URL or local file path")
+    parser.add_argument("--isbn", help="ISBN to auto-fetch cover from Google Books")
 
     args = parser.parse_args()
 
@@ -511,14 +605,32 @@ def main():
         print(f"\nAnalysis saved to: {analysis_file}")
         return
 
+    # Handle cover image
+    cover_path = None
+    if args.cover:
+        cover_path = download_cover(args.cover, directory)
+        if cover_path:
+            print(f"\nCover image: {cover_path}")
+        else:
+            print("\nWarning: Could not download cover image")
+    elif args.isbn:
+        cover_path = directory / "cover.jpg"
+        print(f"\nFetching cover for ISBN {args.isbn}...")
+        if fetch_cover_from_isbn(args.isbn, cover_path):
+            print(f"  Cover saved to: {cover_path}")
+        else:
+            print("  Could not fetch cover from Google Books")
+            cover_path = None
+
     # Create metadata object if any metadata args provided
     metadata = None
-    if any([args.album, args.author, args.narrator, args.year]):
+    if any([args.album, args.author, args.narrator, args.year, cover_path]):
         metadata = Metadata(
             album=args.album,
             author=args.author,
             narrator=args.narrator,
-            year=args.year
+            year=args.year,
+            cover_path=cover_path
         )
         print(f"\nMetadata: album='{args.album}', author='{args.author}', narrator='{args.narrator}'")
 
