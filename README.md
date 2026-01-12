@@ -10,6 +10,7 @@ Automatically detect and split audiobook MP3 files by chapters using Whisper spe
 - Splits by chapters or fixed time segments
 - Parallel transcription for speed
 - Caches transcriptions for re-runs
+- **ID3 metadata tagging** - add album, author, narrator, track numbers
 
 ## Requirements
 
@@ -70,6 +71,25 @@ Shows detected chapters and saves analysis to `chapter_analysis.json`.
 python audiobook_splitter.py /path/to/audiobook/folder --output /path/to/output
 ```
 
+### With Metadata Tags
+
+```bash
+python audiobook_splitter.py /path/to/audiobook/folder \
+    --album "The Word Is Murder" \
+    --author "Anthony Horowitz" \
+    --narrator "Rory Kinnear" \
+    --year "2018"
+```
+
+This adds ID3 metadata to each chapter file:
+- Title (chapter name)
+- Album (book title)
+- Artist (narrator)
+- Album Artist/Composer (author)
+- Track number (chapter number)
+- Genre (Audiobook)
+- Year
+
 ## Options
 
 | Option | Description |
@@ -78,6 +98,10 @@ python audiobook_splitter.py /path/to/audiobook/folder --output /path/to/output
 | `--analyze-only` | Only detect chapters, don't split |
 | `--parallel N` | Number of parallel transcription jobs (default: 4) |
 | `--output DIR` | Custom output directory |
+| `--album TITLE` | Book title for ID3 metadata |
+| `--author NAME` | Author name for ID3 metadata |
+| `--narrator NAME` | Narrator name for ID3 metadata |
+| `--year YEAR` | Publication year for ID3 metadata |
 
 ## How It Works
 

@@ -14,6 +14,7 @@ Usage:
     python audiobook_splitter.py /path/to/audiobook/folder
     python audiobook_splitter.py /path/to/audiobook/folder --segment-minutes 10
     python audiobook_splitter.py /path/to/audiobook/folder --analyze-only
+    python audiobook_splitter.py /path/to/audiobook/folder --album "Book Title" --author "Author Name" --narrator "Narrator Name"
 """
 
 import argparse
@@ -271,8 +272,54 @@ def determine_file_order(mp3_files: list[Path], transcripts_dir: Path) -> list[A
     return file_order
 
 
+@dataclass
+class Metadata:
+    album: Optional[str] = None
+    author: Optional[str] = None
+    narrator: Optional[str] = None
+    year: Optional[str] = None
+
+
+def add_metadata(file_path: Path, title: str, track_num: int, total_tracks: int,
+                 metadata: Metadata) -> bool:
+    """Add ID3 metadata to an MP3 file."""
+    if not any([metadata.album, metadata.author, metadata.narrator]):
+        return True  # No metadata to add
+
+    temp_file = file_path.with_suffix('.tmp.mp3')
+
+    cmd = [
+        "ffmpeg", "-y", "-i", str(file_path),
+        "-c", "copy",
+        "-metadata", f"title={title}",
+        "-metadata", f"track={track_num}/{total_tracks}",
+        "-metadata", "genre=Audiobook",
+    ]
+
+    if metadata.album:
+        cmd.extend(["-metadata", f"album={metadata.album}"])
+    if metadata.author:
+        cmd.extend(["-metadata", f"album_artist={metadata.author}"])
+        cmd.extend(["-metadata", f"composer={metadata.author}"])
+    if metadata.narrator:
+        cmd.extend(["-metadata", f"artist={metadata.narrator}"])
+    if metadata.year:
+        cmd.extend(["-metadata", f"date={metadata.year}"])
+
+    cmd.append(str(temp_file))
+
+    code, _, _ = run_command(cmd, timeout=60)
+    if code == 0:
+        temp_file.replace(file_path)
+        return True
+    else:
+        temp_file.unlink(missing_ok=True)
+        return False
+
+
 def split_by_chapters(chapters: list[Chapter], mp3_files: list[Path],
-                     output_dir: Path, file_durations: dict[str, float]):
+                     output_dir: Path, file_durations: dict[str, float],
+                     metadata: Optional[Metadata] = None):
     """Split audio files by chapter boundaries."""
     output_dir.mkdir(parents=True, exist_ok=True)
 
@@ -320,6 +367,10 @@ def split_by_chapters(chapters: list[Chapter], mp3_files: list[Path],
 
         run_command(cmd, timeout=300)
 
+        # Add metadata if provided
+        if metadata and out_file.exists():
+            add_metadata(out_file, ch.title, ch.number, len(chapters), metadata)
+
 
 def split_by_duration(mp3_files: list[Path], output_dir: Path, segment_minutes: int):
     """Split audio files into fixed-duration segments."""
@@ -362,6 +413,10 @@ def main():
     parser.add_argument("--parallel", type=int, default=4,
                        help="Number of parallel transcription jobs (default: 4)")
     parser.add_argument("--output", help="Output directory (default: <directory>/chapters)")
+    parser.add_argument("--album", help="Album/book title for metadata")
+    parser.add_argument("--author", help="Author name for metadata")
+    parser.add_argument("--narrator", help="Narrator name for metadata")
+    parser.add_argument("--year", help="Publication year for metadata")
 
     args = parser.parse_args()
 
@@ -456,9 +511,20 @@ def main():
         print(f"\nAnalysis saved to: {analysis_file}")
         return
 
+    # Create metadata object if any metadata args provided
+    metadata = None
+    if any([args.album, args.author, args.narrator, args.year]):
+        metadata = Metadata(
+            album=args.album,
+            author=args.author,
+            narrator=args.narrator,
+            year=args.year
+        )
+        print(f"\nMetadata: album='{args.album}', author='{args.author}', narrator='{args.narrator}'")
+
     # Split by chapters
     print(f"\nSplitting into chapters...")
-    split_by_chapters(unique_chapters, mp3_files, output_dir, file_durations)
+    split_by_chapters(unique_chapters, mp3_files, output_dir, file_durations, metadata)
 
     print(f"\nDone! {len(unique_chapters)} chapters created in: {output_dir}")
 
