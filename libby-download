@@ -1,0 +1,7 @@
+#!/bin/bash
+# Libby Audiobook Downloader & Chapter Splitter
+# Usage: libby-download [url] [--output dir] [--cover path] [--isbn ISBN]
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+source "$SCRIPT_DIR/.venv/bin/activate"
+python3 "$SCRIPT_DIR/libby_audiobook.py" "$@"

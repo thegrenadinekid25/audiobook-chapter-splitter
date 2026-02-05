@@ -1,116 +1,134 @@
 # Audiobook Chapter Splitter
 
-Automatically detect and split audiobook MP3 files by chapters using Whisper speech-to-text.
+Download audiobooks from Libby and split them into individual chapter MP3s with full metadata.
 
 ## Features
 
-- Automatic chapter detection using AI transcription
-- Handles audiobooks with files in random order
-- Detects duplicate files
-- Splits by chapters or fixed time segments
-- Parallel transcription for speed
-- Caches transcriptions for re-runs
-- **ID3 metadata tagging** - add album, author, narrator, track numbers
-- **Cover art embedding** - from URL, local file, or auto-fetch by ISBN
+- **End-to-end Libby pipeline** -- give a URL, get chapter files
+- **Automatic chapter detection** from Libby metadata (instant, no transcription needed)
+- **Whisper fallback** -- AI transcription for books without chapter data
+- **ID3 metadata tagging** -- title, album, author, narrator, track numbers, genre
+- **Cover art embedding** -- from Libby, URL, local file, or auto-fetch by ISBN
+- **Parallel downloads** for speed
+- Splits by chapters or fixed time segments (standalone mode)
 
 ## Requirements
 
 - macOS (tested on Apple Silicon)
 - Python 3.10+
-- ffmpeg
-- whisper-cpp
+- ffmpeg (`brew install ffmpeg`)
+- playwright (`pip install playwright && playwright install chromium`)
+- whisper-cpp (`brew install whisper-cpp`) -- only needed if Libby book lacks chapter data
 
 ## Installation
 
 ```bash
-# Install dependencies
-brew install ffmpeg whisper-cpp
+brew install ffmpeg
+pip install playwright
+playwright install chromium
 
-# Clone the repo
+# Clone and set up
 git clone https://github.com/YOUR_USERNAME/audiobook-chapter-splitter.git
 cd audiobook-chapter-splitter
-
-# Make executable
-chmod +x audiobook_splitter.py
+chmod +x libby_audiobook.py
 ```
 
-The Whisper model (~140MB) is downloaded automatically on first run.
+## Libby Pipeline (Recommended)
 
-## Usage
-
-### Split by Chapters (Automatic Detection)
+### Basic Usage
 
 ```bash
-python audiobook_splitter.py /path/to/audiobook/folder
+python libby_audiobook.py "https://libbyapp.com/open/loan/12345/67890"
 ```
 
 This will:
-1. Transcribe all MP3 files using Whisper
-2. Detect chapter markers from the transcription
-3. Split the audio at chapter boundaries
-4. Output to `chapters/` subfolder
+1. Open a browser (uses your Chrome login session)
+2. Capture the audiobook data when you click "Listen"
+3. Download all audio segments in parallel
+4. Split into individual chapter MP3s using Libby's chapter data
+5. Tag each file with title, author, narrator, track number, and genre
 
-### Split by Fixed Duration
-
-```bash
-python audiobook_splitter.py /path/to/audiobook/folder --segment-minutes 10
-```
-
-Creates 10-minute segments without chapter detection.
-
-### Analyze Only (No Splitting)
+### Browse and Pick
 
 ```bash
-python audiobook_splitter.py /path/to/audiobook/folder --analyze-only
+python libby_audiobook.py
 ```
 
-Shows detected chapters and saves analysis to `chapter_analysis.json`.
-
-### Custom Output Directory
-
-```bash
-python audiobook_splitter.py /path/to/audiobook/folder --output /path/to/output
-```
-
-### With Metadata Tags
-
-```bash
-python audiobook_splitter.py /path/to/audiobook/folder \
-    --album "The Word Is Murder" \
-    --author "Anthony Horowitz" \
-    --narrator "Rory Kinnear" \
-    --year "2018"
-```
-
-This adds ID3 metadata to each chapter file:
-- Title (chapter name)
-- Album (book title)
-- Artist (narrator)
-- Album Artist/Composer (author)
-- Track number (chapter number)
-- Genre (Audiobook)
-- Year
+Opens Libby so you can browse your library and pick a book.
 
 ### With Cover Art
 
 ```bash
-# From a URL
-python audiobook_splitter.py /path/to/audiobook/ \
-    --cover "https://example.com/cover.jpg" \
-    --album "Book Title"
+# Auto-fetch from ISBN
+python libby_audiobook.py "https://libbyapp.com/open/loan/..." \
+    --isbn "9780062676788"
 
-# From a local file
-python audiobook_splitter.py /path/to/audiobook/ \
-    --cover /path/to/cover.jpg \
-    --album "Book Title"
-
-# Auto-fetch by ISBN (uses Google Books API)
-python audiobook_splitter.py /path/to/audiobook/ \
-    --isbn "9780062676788" \
-    --album "The Word Is Murder"
+# From a URL or local file
+python libby_audiobook.py "https://libbyapp.com/open/loan/..." \
+    --cover /path/to/cover.jpg
 ```
 
-## Options
+### Custom Output Directory
+
+```bash
+python libby_audiobook.py "https://libbyapp.com/open/loan/..." \
+    --output ~/Audiobooks
+```
+
+### Download Only (No Splitting)
+
+```bash
+python libby_audiobook.py "https://libbyapp.com/open/loan/..." --no-split
+```
+
+### Libby Pipeline Options
+
+| Option | Description |
+|--------|-------------|
+| `--output/-o DIR` | Output directory (default: current) |
+| `--cover URL/PATH` | Cover image URL or local file path |
+| `--isbn ISBN` | Auto-fetch cover from Google Books by ISBN |
+| `--year YEAR` | Publication year for metadata |
+| `--no-split` | Download only, keep as single merged MP3 |
+| `--force-whisper` | Use Whisper transcription even if Libby has chapters |
+| `--keep-merged` | Keep the merged MP3 after splitting into chapters |
+| `--workers N` | Parallel download workers (default: 4) |
+
+### Output Structure
+
+```
+./Book Title/
+  chapters/
+    ch01_prologue.mp3
+    ch02_chapter_one.mp3
+    ch03_the_discovery.mp3
+    ...
+  metadata.json
+  cover.jpg
+```
+
+Each chapter MP3 includes:
+- Title (chapter name)
+- Album (book title)
+- Artist (narrator)
+- Album Artist / Composer (author)
+- Track number
+- Genre (Audiobook)
+- Cover art (embedded)
+
+## Standalone Splitter
+
+For audiobook MP3s you already have (not from Libby), the standalone splitter uses Whisper transcription to detect chapters:
+
+```bash
+python audiobook_splitter.py /path/to/audiobook/folder
+python audiobook_splitter.py /path/to/audiobook/folder --segment-minutes 10
+python audiobook_splitter.py /path/to/audiobook/folder --analyze-only
+python audiobook_splitter.py /path/to/audiobook/folder \
+    --album "Book Title" --author "Author" --narrator "Narrator"
+```
+
+### Standalone Options
 
 | Option | Description |
 |--------|-------------|
@@ -119,56 +137,27 @@ python audiobook_splitter.py /path/to/audiobook/ \
 | `--parallel N` | Number of parallel transcription jobs (default: 4) |
 | `--output DIR` | Custom output directory |
 | `--album TITLE` | Book title for ID3 metadata |
-| `--author NAME` | Author name for ID3 metadata |
-| `--narrator NAME` | Narrator name for ID3 metadata |
-| `--year YEAR` | Publication year for ID3 metadata |
-| `--cover URL/PATH` | Cover image URL or local file path |
-| `--isbn ISBN` | Auto-fetch cover from Google Books by ISBN |
+| `--author NAME` | Author name |
+| `--narrator NAME` | Narrator name |
+| `--year YEAR` | Publication year |
+| `--cover URL/PATH` | Cover image |
+| `--isbn ISBN` | Auto-fetch cover by ISBN |
 
 ## How It Works
 
-1. **Transcription**: Each MP3 file is converted to WAV and transcribed using whisper-cpp
-2. **Chapter Detection**: The transcription is scanned for chapter markers like "1. Chapter Title" or "Chapter One"
-3. **Timestamp Extraction**: Chapter start times are extracted from the SRT subtitle format
-4. **Splitting**: ffmpeg splits the audio at detected chapter boundaries
+### Libby Pipeline
+1. **Browser automation** (Playwright) opens Libby with your Chrome session
+2. **BIF extraction** captures the book's metadata, chapter data, and auth tokens
+3. **Parallel download** fetches all audio segments using curl
+4. **Merge** concatenates segments into a single MP3 with ffmpeg
+5. **Chapter splitting** uses publisher-provided chapter timestamps to split precisely
+6. **Metadata tagging** adds ID3 tags and cover art to each chapter file
 
-## Limitations
-
-- Works best with audiobooks that have clearly announced chapter titles
-- Transcription quality depends on audio clarity
-- Very long audiobooks may take significant time to transcribe
-
-## Performance
-
-On Apple M2:
-- Transcription: ~3-4x realtime (1 hour of audio in ~15-20 minutes)
-- Parallel processing: 8 one-hour files in ~20-25 minutes
-
-## Example Output
-
-```
-Found 9 MP3 files
-
-Transcribing audio files...
-  [1] Converting to WAV...
-  [1] Transcribing with Whisper...
-  [1] Done!
-  ...
-
-Detected chapters:
-------------------------------------------------------------
-  Ch  1: Funeral Plans                    (Part 1 @ 00:07)
-  Ch  2: Two Weeks Earlier                (Part 1 @ 12:51)
-  Ch  3: Chapter One                      (Part 1 @ 46:53)
-  ...
-
-Splitting into chapters...
-  Creating: ch01 - Funeral Plans
-  Creating: ch02 - Two Weeks Earlier
-  ...
-
-Done! 24 chapters created in: /path/to/audiobook/chapters
-```
+### Standalone Splitter (Whisper)
+1. **Transcription**: MP3 -> WAV -> whisper-cpp -> SRT subtitles
+2. **Chapter detection**: Regex scan for patterns like "1. Title" or "Chapter One"
+3. **Splitting**: ffmpeg splits at detected chapter boundaries
+4. **Tagging**: ID3 metadata + cover art applied to each file
 
 ## License
 
