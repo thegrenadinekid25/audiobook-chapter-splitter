@@ -1,0 +1,917 @@
+{
+  "title": "Magpie Murders",
+  "creator": [
+    {
+      "name": "Anthony Horowitz",
+      "role": "author",
+      "bio": ""
+    },
+    {
+      "name": "Samantha Bond",
+      "role": "narrator",
+      "bio": ""
+    },
+    {
+      "name": "Allan Corduner",
+      "role": "narrator",
+      "bio": ""
+    }
+  ],
+  "spine": [
+    {
+      "duration": 12.904489,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part01.mp3"
+    },
+    {
+      "duration": 368.822857,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part02.mp3"
+    },
+    {
+      "duration": 183.222857,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part03.mp3"
+    },
+    {
+      "duration": 301.923265,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part04.mp3"
+    },
+    {
+      "duration": 709.799183,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part05.mp3"
+    },
+    {
+      "duration": 1087.634285,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part06.mp3"
+    },
+    {
+      "duration": 469.34204,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part07.mp3"
+    },
+    {
+      "duration": 658.520816,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part08.mp3"
+    },
+    {
+      "duration": 747.52,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part09.mp3"
+    },
+    {
+      "duration": 303.464489,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part10.mp3"
+    },
+    {
+      "duration": 610.56,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part11.mp3"
+    },
+    {
+      "duration": 719.177142,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part12.mp3"
+    },
+    {
+      "duration": 1250.899591,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part13.mp3"
+    },
+    {
+      "duration": 140.120816,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part14.mp3"
+    },
+    {
+      "duration": 454.060408,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part15.mp3"
+    },
+    {
+      "duration": 564.192653,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part16.mp3"
+    },
+    {
+      "duration": 490.657959,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part17.mp3"
+    },
+    {
+      "duration": 335.882449,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part18.mp3"
+    },
+    {
+      "duration": 519.915102,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part19.mp3"
+    },
+    {
+      "duration": 320.496326,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part20.mp3"
+    },
+    {
+      "duration": 290.821224,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part21.mp3"
+    },
+    {
+      "duration": 1552.64,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part22.mp3"
+    },
+    {
+      "duration": 583.183673,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part23.mp3"
+    },
+    {
+      "duration": 410.592653,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part24.mp3"
+    },
+    {
+      "duration": 600.502857,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part25.mp3"
+    },
+    {
+      "duration": 453.537959,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part26.mp3"
+    },
+    {
+      "duration": 965.12,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part27.mp3"
+    },
+    {
+      "duration": 284.081632,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part28.mp3"
+    },
+    {
+      "duration": 411.062857,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part29.mp3"
+    },
+    {
+      "duration": 553.064489,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part30.mp3"
+    },
+    {
+      "duration": 570.122449,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part31.mp3"
+    },
+    {
+      "duration": 1066.684081,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part32.mp3"
+    },
+    {
+      "duration": 962.324898,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part33.mp3"
+    },
+    {
+      "duration": 941.818775,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part34.mp3"
+    },
+    {
+      "duration": 568.842449,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part35.mp3"
+    },
+    {
+      "duration": 1191.784489,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part36.mp3"
+    },
+    {
+      "duration": 604.342857,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part37.mp3"
+    },
+    {
+      "duration": 571.324081,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part38.mp3"
+    },
+    {
+      "duration": 656.143673,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part39.mp3"
+    },
+    {
+      "duration": 794.122449,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part40.mp3"
+    },
+    {
+      "duration": 681.142857,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part41.mp3"
+    },
+    {
+      "duration": 205.583673,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part42.mp3"
+    },
+    {
+      "duration": 102.974693,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part43.mp3"
+    },
+    {
+      "duration": 2300.995918,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part44.mp3"
+    },
+    {
+      "duration": 206.471836,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part45.mp3"
+    },
+    {
+      "duration": 754.181224,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part46.mp3"
+    },
+    {
+      "duration": 1044.401632,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part47.mp3"
+    },
+    {
+      "duration": 768.731428,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part48.mp3"
+    },
+    {
+      "duration": 1699.604898,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part49.mp3"
+    },
+    {
+      "duration": 530.416326,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part50.mp3"
+    },
+    {
+      "duration": 466.233469,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part51.mp3"
+    },
+    {
+      "duration": 902.739591,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part52.mp3"
+    },
+    {
+      "duration": 593.423673,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part53.mp3"
+    },
+    {
+      "duration": 1188.493061,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part54.mp3"
+    },
+    {
+      "duration": 1298.78204,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part55.mp3"
+    },
+    {
+      "duration": 593.031836,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part56.mp3"
+    },
+    {
+      "duration": 1239.379591,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part57.mp3"
+    },
+    {
+      "duration": 705.802449,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part58.mp3"
+    },
+    {
+      "duration": 687.673469,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part59.mp3"
+    },
+    {
+      "duration": 1746.964898,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part60.mp3"
+    },
+    {
+      "duration": 558.759183,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part61.mp3"
+    },
+    {
+      "duration": 885.995102,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part62.mp3"
+    },
+    {
+      "duration": 1001.299591,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part63.mp3"
+    },
+    {
+      "duration": 527.412244,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part64.mp3"
+    },
+    {
+      "duration": 536.424489,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part65.mp3"
+    },
+    {
+      "duration": 289.332244,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part66.mp3"
+    },
+    {
+      "duration": 1030.922449,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part67.mp3"
+    },
+    {
+      "duration": 231.235918,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part68.mp3"
+    },
+    {
+      "duration": 233.560816,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part69.mp3"
+    },
+    {
+      "duration": 988.551836,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part70.mp3"
+    },
+    {
+      "duration": 1203.173877,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part71.mp3"
+    },
+    {
+      "duration": 578.481632,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part72.mp3"
+    },
+    {
+      "duration": 1780.06204,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part73.mp3"
+    },
+    {
+      "duration": 545.044898,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part74.mp3"
+    },
+    {
+      "duration": 237.897142,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part75.mp3"
+    },
+    {
+      "duration": 981.420408,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part76.mp3"
+    },
+    {
+      "duration": 209.50204,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part77.mp3"
+    },
+    {
+      "duration": 2369.671836,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part78.mp3"
+    },
+    {
+      "duration": 211.121632,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part79.mp3"
+    },
+    {
+      "duration": 460.094693,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part80.mp3"
+    },
+    {
+      "duration": 35.082449,
+      "type": "audio/mpeg",
+      "bitrate": 64,
+      "path": "{11C6C277-6B79-4BA2-A114-3AD1397D040F}Fmt425-Part81.mp3"
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Magpie Murders - 1",
+      "spine": 0,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 2",
+      "spine": 1,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 3",
+      "spine": 2,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 4",
+      "spine": 3,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 5",
+      "spine": 4,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 6",
+      "spine": 5,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 7",
+      "spine": 6,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 8",
+      "spine": 7,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 9",
+      "spine": 8,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 10",
+      "spine": 9,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 11",
+      "spine": 10,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 12",
+      "spine": 11,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 13",
+      "spine": 12,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 14",
+      "spine": 13,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 15",
+      "spine": 14,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 16",
+      "spine": 15,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 17",
+      "spine": 16,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 18",
+      "spine": 17,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 19",
+      "spine": 18,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 20",
+      "spine": 19,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 21",
+      "spine": 20,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 22",
+      "spine": 21,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 23",
+      "spine": 22,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 24",
+      "spine": 23,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 25",
+      "spine": 24,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 26",
+      "spine": 25,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 27",
+      "spine": 26,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 28",
+      "spine": 27,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 29",
+      "spine": 28,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 30",
+      "spine": 29,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 31",
+      "spine": 30,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 32",
+      "spine": 31,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 33",
+      "spine": 32,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 34",
+      "spine": 33,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 35",
+      "spine": 34,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 36",
+      "spine": 35,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 37",
+      "spine": 36,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 38",
+      "spine": 37,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 39",
+      "spine": 38,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 40",
+      "spine": 39,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 41",
+      "spine": 40,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 42",
+      "spine": 41,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 43",
+      "spine": 42,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 44",
+      "spine": 43,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 45",
+      "spine": 44,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 46",
+      "spine": 45,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 47",
+      "spine": 46,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 48",
+      "spine": 47,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 49",
+      "spine": 48,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 50",
+      "spine": 49,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 51",
+      "spine": 50,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 52",
+      "spine": 51,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 53",
+      "spine": 52,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 54",
+      "spine": 53,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 55",
+      "spine": 54,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 56",
+      "spine": 55,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 57",
+      "spine": 56,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 58",
+      "spine": 57,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 59",
+      "spine": 58,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 60",
+      "spine": 59,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 61",
+      "spine": 60,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 62",
+      "spine": 61,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 63",
+      "spine": 62,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 64",
+      "spine": 63,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 65",
+      "spine": 64,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 66",
+      "spine": 65,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 67",
+      "spine": 66,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 68",
+      "spine": 67,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 69",
+      "spine": 68,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 70",
+      "spine": 69,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 71",
+      "spine": 70,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 72",
+      "spine": 71,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 73",
+      "spine": 72,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 74",
+      "spine": 73,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 75",
+      "spine": 74,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 76",
+      "spine": 75,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 77",
+      "spine": 76,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 78",
+      "spine": 77,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 79",
+      "spine": 78,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 80",
+      "spine": 79,
+      "offset": 0
+    },
+    {
+      "title": "Magpie Murders - 81",
+      "spine": 80,
+      "offset": 0
+    }
+  ],
+  "components_count": 81,
+  "total_duration": 56893.309353
+}
